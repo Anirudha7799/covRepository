@@ -23,21 +23,12 @@ public class SpringBootDataJpaApplication {
 		Employee employee2 = new Employee(102, "Aniket", department1);
 		Employee employee3 = new Employee(103, "Ankita", department2);
 		Employee employee4 = new Employee(104, "Arpita", department2);
-
-
-
 		List<Employee> employees1 = new ArrayList<>();
 		List<Employee> employees2 = new ArrayList<>();
 		employees1.add(employee1);
 		employees1.add(employee2);
-
-
-
 		employees2.add(employee3);
 		employees2.add(employee4);
-
-
-
 		EmployeeService employeeService = ctxt.getBean(EmployeeService.class);
 		DepartmentService departmentService = ctxt.getBean(DepartmentService.class);
 		departmentService.save(department1);
@@ -47,16 +38,6 @@ public class SpringBootDataJpaApplication {
 		employeeService.save(employee3);
 		employeeService.save(employee4);
 
+	}
 
-
-		}
-
-
-
-		
-
-		}
-
-
-
-		
+}
