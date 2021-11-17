@@ -1,7 +1,5 @@
 package com.cov.beans;
 
-import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -58,18 +56,7 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", Name=" + Name + ", Deptno=" + Deptno + "]";
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Employee other = (Employee) obj;
-		return Deptno == other.Deptno && Objects.equals(Name, other.Name) && id == other.id;
+	
 	}
 
 }

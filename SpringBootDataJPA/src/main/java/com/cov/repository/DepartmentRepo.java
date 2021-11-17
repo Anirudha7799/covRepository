@@ -1,11 +1,13 @@
 package com.cov.repository;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.cov.beans.Department;
 
-@Repository
-public interface DepartmentRepo extends CrudRepository<Department, Integer> {
+public interface DepartmentRepo extends JpaRepository<Department, Integer> {
+
+	Optional<Department> findById(Integer id);
 
 }

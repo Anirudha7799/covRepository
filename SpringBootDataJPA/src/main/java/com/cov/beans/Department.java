@@ -1,8 +1,7 @@
 package com.cov.beans;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,68 +11,45 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
+
 public class Department {
 	@Id
+	int id;
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int Deptno;
-	String Deptname;
-	String Loc;
-
+	String name;
 	@OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Employee>employees;
-	
+	public List<Employee> employees = new ArrayList<>();
 
 	public Department() {
+
+	}
+
+	public Department(int id, int deptno, String name) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.name = name;
 	}
 
-	public Department(int deptno, String deptname, String loc) {
-		super();
-		Deptno = deptno;
-		Deptname = deptname;
-		Loc = loc;
+	public int getId() {
+		return id;
 	}
 
-	public int getDeptno() {
-		return Deptno;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setDeptno(int deptno) {
-		Deptno = deptno;
+	public String getName() {
+		return name;
 	}
 
-	public String getDeptname() {
-		return Deptname;
-	}
-
-	public void setDeptname(String deptname) {
-		Deptname = deptname;
-	}
-
-	public String getLoc() {
-		return Loc;
-	}
-
-	public void setLoc(String loc) {
-		Loc = loc;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Department other = (Department) obj;
-		return Objects.equals(Deptname, other.Deptname) && Deptno == other.Deptno && Objects.equals(Loc, other.Loc);
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public String toString() {
-		return "Department [Deptno=" + Deptno + ", Deptname=" + Deptname + ", Loc=" + Loc + "]";
+		return "Department [id=" + id + ", name=" + name + "]";
 	}
 
+	
 }
