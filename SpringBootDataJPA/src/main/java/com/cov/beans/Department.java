@@ -2,7 +2,7 @@ package com.cov.beans;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,20 +11,20 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-
 public class Department {
 	@Id
 	int id;
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	String name;
-	@OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+	@OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
 	public List<Employee> employees = new ArrayList<>();
 
 	public Department() {
 
 	}
 
-	public Department(int id, int deptno, String name) {
+	public Department(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -51,5 +51,4 @@ public class Department {
 		return "Department [id=" + id + ", name=" + name + "]";
 	}
 
-	
 }

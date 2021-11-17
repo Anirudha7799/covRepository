@@ -12,21 +12,22 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
-	String Name;
-	int Deptno;
+	String name;
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	private Employee employee;
+//@JoinColumn(name = "dept_id", nullable = false)
+	Department department;
+
+	public Employee(int id, String name, Department department) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.department = department;
+	}
 
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Employee(int id, String name, int deptno) {
-		super();
-		this.id = id;
-		Name = name;
-		Deptno = deptno;
+// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -38,25 +39,24 @@ public class Employee {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
-	public int getDeptno() {
-		return Deptno;
+	public Department getDepartment() {
+		return department;
 	}
 
-	public void setDeptno(int deptno) {
-		Deptno = deptno;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", Name=" + Name + ", Deptno=" + Deptno + "]";
-	
+		return "Employee [id=" + id + ", name=" + name + ", department=" + department + "]";
 	}
 
 }
