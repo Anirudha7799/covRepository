@@ -23,6 +23,7 @@ public class App_01 {
 		emp.setId(11);
 		emp.setFirstName("priyanka");
 		emp.setLastName("warrior");
+		System.out.println("Hii");
 
 		session.save(emp);
 		t.commit();
