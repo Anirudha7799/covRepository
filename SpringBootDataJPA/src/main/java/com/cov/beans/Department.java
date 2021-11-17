@@ -21,6 +21,7 @@ public class Department {
 
 	@OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Employee>employees;
+	
 
 	public Department() {
 		super();
