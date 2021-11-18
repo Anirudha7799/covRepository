@@ -1,5 +1,7 @@
 package com.cov.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,51 +12,63 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cov.beans.Employee;
 import com.cov.exception.InvalidEmployeeIdException;
+import com.cov.service.DepartmentService;
 import com.cov.service.EmployeeService;
 
 @Controller
-
 public class EmployeeController {
+
 	@Autowired
 	EmployeeService employeeService;
 
+	@Autowired
+	DepartmentService departmentService;
+
 	@RequestMapping(value = "regemp", method = RequestMethod.GET)
 	public ModelAndView newEmployee() {
-		ModelAndView modelAndView = new ModelAndView("employee", "employee", new Employee());
+		ModelAndView modelAndView = new ModelAndView("regEmployee", "employee", new Employee());
+		modelAndView.addObject("departmentService", departmentService);
 		return modelAndView;
-
 	}
 
 	@RequestMapping(value = "regemp", method = RequestMethod.POST)
-	public ModelAndView saveEmployee(@ModelAttribute Employee emp) {
-		ModelAndView modelAndView = new ModelAndView("savedEmployee");
-		modelAndView.addObject("emp", employeeService.save(emp));
+	public ModelAndView saveEmployee(@ModelAttribute("employee") Employee emp) throws InvalidEmployeeIdException {
+		System.out.println("Trying to insert employee : " + emp);
+		System.out.println("Department : " + emp.getDepartment());
+		ModelAndView modelAndView = new ModelAndView("showEmployee");
+		employeeService.save(emp);
+		modelAndView.addObject("emps", employeeService.findAll());
 		return modelAndView;
-
 	}
 
 	@RequestMapping("getEmp")
-	public ModelAndView findEmployee(Employee employee) {
-		ModelAndView modelAndView = new ModelAndView("employee", "emps", employeeService.findAll());
-
+	public ModelAndView findEmployee() {
+		ModelAndView modelAndView = new ModelAndView("showEmployee", "emps", employeeService.findAll());
 		return modelAndView;
+	}
 
+	@RequestMapping(value = "getemps", method = RequestMethod.GET)
+	public ModelAndView findEmployeeAll() throws InvalidEmployeeIdException {
+		ModelAndView modelAndView = new ModelAndView("showEmployee");
+		List<Employee> emps = employeeService.findAll();
+		modelAndView.addObject("emps", emps);
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "editEmp", method = RequestMethod.GET)
 	public ModelAndView editEmp(@RequestParam int id) throws InvalidEmployeeIdException {
-
-		Employee empToEdit = employeeService.findById(id);
-		ModelAndView modelAndView = new ModelAndView("editEmployee", "empToEdit", empToEdit);
-
+		Employee empTOEdit = employeeService.findById(id);
+		ModelAndView modelAndView = new ModelAndView("editEmp", "empToEdit", empTOEdit);
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "updateEmp", method = RequestMethod.POST)
-	public ModelAndView updateEmp(@ModelAttribute("empToEdit") Employee employee) throws InvalidEmployeeIdException {
-		ModelAndView modelAndView = new ModelAndView("redirect:" + "getEmp");
-
+	public ModelAndView updateEditEmployee(@ModelAttribute("empToEdit") Employee employee)
+			throws InvalidEmployeeIdException {
+		employeeService.update(employee);
+		ModelAndView modelAndView = new ModelAndView("redirect:" + "getemps");
 		return modelAndView;
+
 	}
 
 	@RequestMapping(value = "deleteEmp")
