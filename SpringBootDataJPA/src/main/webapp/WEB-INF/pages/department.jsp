@@ -3,19 +3,27 @@ pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Saved Employee</title>
+<meta charset="ISO-8859-1">
+<title>Department Page</title>
 </head>
 <body bgcolor="AAA492">
-<h2>Employee Details</h2>
-Id:${ employee.id }
+<a href="getDepts">Show Department</a>
 <br>
 <br>
-Name:${ employee.name }
+
+
+
+<a href="regdept">Register Department</a>
 <br>
-Department:${employee.department}
 <br>
-<br>
+
+
+
 <a href="/">Home</a>
-<a href="getEmps">ShowAllEmployee</a>
+<br>
+<br>
+
+
+
 </body>
 </html>

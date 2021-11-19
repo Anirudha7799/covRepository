@@ -5,24 +5,24 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Department Registration Page</title>
+<title>Department editing page</title>
 </head>
 <body bgcolor="AAA492">
-<h2>Department Registration</h2>
-<form:form action="regdept" method="post" modelAttribute="department">
+<h2>Update Department Details</h2>
+<form:form action="updateDept" modelAttribute="deptToEdit">
+<form:label path="id">ID</form:label>
+<form:input path="id" readonly="true" />
+<br>
+<br>
 <form:label path="name">Name</form:label>
 <form:input path="name" />
 <br>
 <br>
-<input type="submit" value="Register">
+<input type="submit" value="Update">
 </form:form>
-<br>
-<br>
-<a href="getDepts">Show Department</a>
 <br>
 <br>
 <a href="/">Home</a>
 <br>
 <br>
 </body>
-</html>

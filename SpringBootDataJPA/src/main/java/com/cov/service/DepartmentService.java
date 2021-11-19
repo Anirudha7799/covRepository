@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.cov.beans.Department;
 import com.cov.exception.InvalidDepartmentIdException;
-import com.cov.exception.InvalidEmployeeIdException;
 import com.cov.repository.DepartmentRepo;
 
 @Service
@@ -18,20 +17,24 @@ public class DepartmentService {
 
 	public List<Department> findAll() {
 // List<Employee> employee=new ArrayList<Employee>();
-		return (List<Department>) departmentRepository.findAll();
+		return departmentRepository.findAll();
 // return employee;
+
 	}
 
-	public Department findById(int id) throws InvalidEmployeeIdException {
+	public Department findById(int id) throws InvalidDepartmentIdException {
 		Optional<Department> deptOptional = departmentRepository.findById(id);
 		if (!deptOptional.isPresent()) {
-			throw new InvalidEmployeeIdException("Department Id " + id + " not existing in repository");
+			throw new InvalidDepartmentIdException("Department Id " + id + " not existing in repository");
 		}
 		return deptOptional.get();
+
 	}
 
 	public Department save(Department department) {
+
 		return departmentRepository.save(department);
+
 	}
 
 	public Department update(Department department) throws InvalidDepartmentIdException {
@@ -49,6 +52,7 @@ public class DepartmentService {
 			throw new InvalidDepartmentIdException("Department Id " + id + "not existing in repository");
 		}
 		Department department = deptOptional.get();
+		departmentRepository.deleteById(id);
 		return department;
 	}
 }

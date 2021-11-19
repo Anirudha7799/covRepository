@@ -8,14 +8,14 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>REgistration Page</title>
+<title>update Employee Page</title>
 </head>
 <body bgcolor="AAA492">
-<form:form action="regemp" method="post" modelAttribute="employee">
-<!-- <form:label path="id">ID</form:label>
-<form:input path="id" />
+<form:form action="updateEmp" modelAttribute="empToEdit">
+<form:label path="id">ID</form:label>
+<form:input path="id" readonly="true" />
 <br>
-<br> -->
+<br>
 <form:label path="name">Name</form:label>
 <form:input path="name" />
 <br>
@@ -41,21 +41,13 @@ for (Department department : departments) {
 
 
 
-<input type="submit" value="Register">
+
+<input type="submit" value="Update">
 </form:form>
 <br>
 <br>
 <a href="/">Home</a>
 <br>
 <br>
-
-
-
-
-
-
-
-
-
 </body>
 </html>

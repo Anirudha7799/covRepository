@@ -33,7 +33,7 @@ public class DepartmentController {
 
 	@RequestMapping("getDepts")
 	public ModelAndView findAll() {
-		ModelAndView modelAndView = new ModelAndView("showdepartment", "depts", departmentService.findAll());
+		ModelAndView modelAndView = new ModelAndView("showDepartment", "depts", departmentService.findAll());
 		return modelAndView;
 	}
 

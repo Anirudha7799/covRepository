@@ -59,6 +59,8 @@ public class EmployeeController {
 	public ModelAndView editEmp(@RequestParam int id) throws InvalidEmployeeIdException {
 		Employee empTOEdit = employeeService.findById(id);
 		ModelAndView modelAndView = new ModelAndView("editEmp", "empToEdit", empTOEdit);
+		modelAndView.addObject("departmentService", departmentService);
+
 		return modelAndView;
 	}
 
