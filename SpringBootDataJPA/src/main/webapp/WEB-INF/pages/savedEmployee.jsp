@@ -16,6 +16,6 @@ Department:${employee.department}
 <br>
 <br>
 <a href="/">Home</a>
-<a href="getEmps">ShowAllEmployee</a>
+<a href="getEmps"><button>ShowAllEmployee</button></a>
 </body>
 </html>

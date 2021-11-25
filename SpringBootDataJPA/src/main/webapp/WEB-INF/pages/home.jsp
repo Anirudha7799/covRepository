@@ -4,7 +4,7 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>home page</title>
+<title >home page</title>
 </head>
 <body bgcolor="89B5AF">
 <h2 align="center">Welcome to Employee Registration Page</h2>

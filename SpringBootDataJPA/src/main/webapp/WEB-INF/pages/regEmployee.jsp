@@ -35,27 +35,12 @@ for (Department department : departments) {
 }
 %>
 </form:select>
-
-
-
-
-
-
 <input type="submit" value="Register">
 </form:form>
 <br>
 <br>
-<a href="/">Home</a>
+<a href="/"><button>Home</button></a>
 <br>
 <br>
-
-
-
-
-
-
-
-
-
 </body>
 </html>

@@ -13,7 +13,7 @@ Id:${ department.id }
 <br> Name:${ department.name }
 <br>
 <br>
-<a href="/">Home</a>
-<a href="getDepts">ShowAllDepartment</a>
+<a href="/"><button>Home</button></a>
+<a href="getDepts"><button>ShowAllDepartment</button></a>
 </body>
 </html>

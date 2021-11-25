@@ -5,17 +5,24 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 public class Employee {
+	@ApiModelProperty(notes = "Auto generated Employee ID by DB")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
+	@ApiModelProperty(notes = "Employee name")
 	String name;
-
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-//@JoinColumn(name = "dept_id", nullable = false)
+	@JoinColumn(name = "dept_id", nullable = false)
+	@JsonIgnore
 	Department department;
 
 	public Employee(int id, String name, Department department) {
@@ -58,5 +65,4 @@ public class Employee {
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", department=" + department + "]";
 	}
-
 }

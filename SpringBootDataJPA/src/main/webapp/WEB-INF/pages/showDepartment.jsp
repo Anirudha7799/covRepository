@@ -29,7 +29,7 @@
 		}
 		%>
 	</table>
-	<a href="/">Home</a>
+	<a href="/"><button>Home</button></a>
 	<br>
 	<br>
 	<a href="regdept"><button>Register Department</button></a>
