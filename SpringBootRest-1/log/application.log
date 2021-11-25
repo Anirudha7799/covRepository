@@ -1,0 +1,10 @@
+22-11-2021 17:55:05 INFO  com.cov.controller.PersonController:34 -finding a person with id : 3 
+22-11-2021 17:55:05 INFO  com.cov.service.PersonService:27 -finding person with id: 3 
+22-11-2021 17:55:05 WARN  com.cov.service.PersonService:30 -com.cov.exception.InvalidPersonIdException: Person id not found 
+22-11-2021 17:55:05 INFO  com.cov.service.PersonService:36 -person found with id 3isAman Panda 
+22-11-2021 17:55:05 INFO  com.cov.controller.PersonController:36 -Found person is 3 Aman Panda 
+22-11-2021 17:55:26 INFO  com.cov.controller.PersonController:34 -finding a person with id : 3 
+22-11-2021 17:55:26 INFO  com.cov.service.PersonService:27 -finding person with id: 3 
+22-11-2021 17:55:26 WARN  com.cov.service.PersonService:30 -com.cov.exception.InvalidPersonIdException: Person id not found 
+22-11-2021 17:55:26 INFO  com.cov.service.PersonService:36 -person found with id 3isAman Panda 
+22-11-2021 17:55:26 INFO  com.cov.controller.PersonController:36 -Found person is 3 Aman Panda 
